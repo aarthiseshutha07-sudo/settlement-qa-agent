@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Settlement Q&A Agent</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+  :root{
+    --bg: #14100c;
+    --bg-raised: #1c1610;
+    --line: #352a1f;
+    --gold: #c9a063;
+    --gold-bright: #e6c07c;
+    --rust: #b5673b;
+    --cream: #f2ead9;
+    --dim: #a89680;
+    --green: #7fae7a;
+    --red: #c06a5a;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background: radial-gradient(ellipse 1200px 700px at 20% -10%, #241a10 0%, var(--bg) 55%);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    min-height:100vh;
+  }
+
+  header{
+    padding: 28px 40px 20px;
+    border-bottom: 1px solid var(--line);
+    display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  }
+  header h1{
+    font-family:'Fraunces', serif; font-weight:600; font-size:28px; margin:0;
+    letter-spacing:.2px;
+  }
+  header .tag{ color: var(--dim); font-size:14px; margin-top:4px; }
+  #genBtn{
+    background:none; border:1px solid var(--line); color:var(--cream);
+    padding:9px 16px; border-radius:7px; font-size:13px; cursor:pointer;
+    font-family:'Inter',sans-serif; transition: border-color .15s ease;
+  }
+  #genBtn:hover{ border-color: var(--gold); }
+
+  main{
+    display:grid; grid-template-columns: 1.15fr 1fr; gap:0;
+    max-width:1280px; margin:0 auto;
+  }
+  @media (max-width: 880px){ main{ grid-template-columns: 1fr; } }
+
+  section{ padding: 28px 40px; }
+  #left{ border-right:1px solid var(--line); }
+
+  .stat-row{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-bottom: 26px; }
+  .stat{
+    background: var(--bg-raised); border:1px solid var(--line); border-radius:10px;
+    padding:16px 16px;
+  }
+  .stat .n{ font-family:'Fraunces', serif; font-size:32px; color: var(--gold-bright); line-height:1; }
+  .stat .l{ font-size:12px; color: var(--dim); margin-top:6px; }
+
+  h2{ font-family:'Fraunces', serif; font-weight:500; font-size:17px; margin: 0 0 12px; color: var(--gold); }
+
+  #exceptionList{ display:flex; flex-direction:column; gap:10px; max-height: 480px; overflow-y:auto; padding-right:4px; }
+  .exc{
+    background: var(--bg-raised); border:1px solid var(--line); border-left: 3px solid var(--rust);
+    border-radius: 7px; padding: 12px 14px;
+  }
+  .exc.MISSING_SETTLEMENT{ border-left-color: var(--red); }
+  .exc.AMOUNT_MISMATCH{ border-left-color: var(--rust); }
+  .exc.DELAYED_SETTLEMENT{ border-left-color: var(--gold); }
+  .exc.DUPLICATE_SETTLEMENT{ border-left-color: #8d7ac0; }
+  .exc.UNKNOWN_SETTLEMENT{ border-left-color: var(--dim); }
+
+  .exc-top{ display:flex; justify-content:space-between; font-size:12px; margin-bottom:5px; }
+  .exc-id{ font-family:'IBM Plex Mono', monospace; color: var(--gold-bright); }
+  .exc-reason{ color: var(--dim); }
+  .exc-detail{ font-size:13.5px; line-height:1.5; color: #e4dac8; }
+
+  #chatPanel{ display:flex; flex-direction:column; height: 640px; }
+  #chatLog{ flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:14px; padding-right:4px; margin-bottom:16px; }
+
+  .bubble{ max-width: 92%; padding: 12px 15px; border-radius: 10px; font-size:14.5px; line-height:1.55; white-space:pre-wrap; }
+  .bubble.user{ align-self:flex-end; background: linear-gradient(135deg, #7a4a28, #915931); color:#fff2df; border-bottom-right-radius:3px; }
+  .bubble.agent{ align-self:flex-start; background: var(--bg-raised); border:1px solid var(--line); border-bottom-left-radius:3px; }
+  .bubble.agent.loading{ color: var(--dim); font-style: italic; }
+
+  #suggestions{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+  .chip{
+    background:none; border:1px solid var(--line); color: var(--dim);
+    padding:6px 12px; border-radius:20px; font-size:12.5px; cursor:pointer;
+    font-family:'Inter',sans-serif; transition: all .15s ease;
+  }
+  .chip:hover{ border-color: var(--gold); color: var(--gold-bright); }
+
+  #inputRow{ display:flex; gap:10px; border-top:1px solid var(--line); padding-top:14px; }
+  #qInput{
+    flex:1; background: var(--bg-raised); border:1px solid var(--line); border-radius:8px;
+    padding: 12px 14px; color: var(--cream); font-family:'Inter',sans-serif; font-size:14.5px;
+  }
+  #qInput:focus{ outline:none; border-color: var(--gold); }
+  #askBtn{
+    background: linear-gradient(135deg, var(--gold), var(--rust)); border:none; color:#1c1208;
+    font-weight:600; padding: 0 20px; border-radius:8px; cursor:pointer; font-size:14px;
+  }
+  #askBtn:disabled{ opacity:.5; cursor:default; }
+
+  ::-webkit-scrollbar{ width:6px; }
+  ::-webkit-scrollbar-thumb{ background: var(--line); border-radius:4px; }
+
+  #emptyState{ color: var(--dim); font-size:14px; padding: 40px 0; text-align:center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Settlement Q&A Agent</h1>
+    <div class="tag">Reconciles the gateway ledger against the bank settlement file — then answers your questions about it.</div>
+  </div>
+  <button id="genBtn">Reconcile a fresh batch</button>
+</header>
+
+<main>
+  <section id="left">
+    <div class="stat-row" id="statRow">
+      <div class="stat"><div class="n">–</div><div class="l">Match rate</div></div>
+      <div class="stat"><div class="n">–</div><div class="l">Transactions</div></div>
+      <div class="stat"><div class="n">–</div><div class="l">₹ at risk</div></div>
+    </div>
+    <h2>Exceptions</h2>
+    <div id="exceptionList"><div id="emptyState">Click "Reconcile a fresh batch" to run the engine.</div></div>
+  </section>
+
+  <section id="chatPanel">
+    <h2>Ask the agent</h2>
+    <div id="suggestions">
+      <button class="chip">What's the overall match rate?</button>
+      <button class="chip">What's the single biggest exception?</button>
+      <button class="chip">List every missing settlement</button>
+      <button class="chip">Why wasn't pay_100002 settled cleanly?</button>
+    </div>
+    <div id="chatLog">
+      <div class="bubble agent">Run a reconciliation first, then ask me anything — e.g. "which exceptions are worth over ₹500" or "explain the delayed settlements."</div>
+    </div>
+    <div id="inputRow">
+      <input id="qInput" type="text" placeholder="Ask about the settlement batch…" />
+      <button id="askBtn">Ask</button>
+    </div>
+  </section>
+</main>
+
+<script>
+const API = "http://localhost:8000";
+
+const genBtn = document.getElementById('genBtn');
+const statRow = document.getElementById('statRow');
+const exceptionList = document.getElementById('exceptionList');
+const chatLog = document.getElementById('chatLog');
+const qInput = document.getElementById('qInput');
+const askBtn = document.getElementById('askBtn');
+
+function fmtMoney(n){
+  return '₹' + Number(n).toLocaleString('en-IN', {maximumFractionDigits: 0});
+}
+
+function renderReport(report){
+  const s = report.summary;
+  statRow.innerHTML = `
+    <div class="stat"><div class="n">${s.match_rate_pct}%</div><div class="l">Match rate</div></div>
+    <div class="stat"><div class="n">${s.total_transactions}</div><div class="l">Transactions</div></div>
+    <div class="stat"><div class="n">${fmtMoney(s.total_amount_at_risk)}</div><div class="l">Amount at risk</div></div>
+  `;
+
+  if(report.exceptions.length === 0){
+    exceptionList.innerHTML = '<div id="emptyState">No exceptions — everything matched cleanly.</div>';
+    return;
+  }
+
+  exceptionList.innerHTML = report.exceptions
+    .sort((a,b) => Math.abs(b.amount_delta) - Math.abs(a.amount_delta))
+    .map(e => `
+      <div class="exc ${e.reason}">
+        <div class="exc-top">
+          <span class="exc-id">${e.payment_id}</span>
+          <span class="exc-reason">${e.reason.replaceAll('_',' ')}</span>
+        </div>
+        <div class="exc-detail">${e.detail}</div>
+      </div>
+    `).join('');
+}
+
+async function runReconcile(){
+  genBtn.disabled = true;
+  genBtn.textContent = "Reconciling…";
+  try{
+    const res = await fetch(`${API}/api/reconcile`, { method: 'POST' });
+    if(!res.ok) throw new Error(await res.text());
+    const report = await res.json();
+    renderReport(report);
+  }catch(err){
+    exceptionList.innerHTML = `<div id="emptyState">Couldn't reach the backend. Is uvicorn running on port 8000?<br><br>${err.message}</div>`;
+  }finally{
+    genBtn.disabled = false;
+    genBtn.textContent = "Reconcile a fresh batch";
+  }
+}
+
+function addBubble(text, who, loading=false){
+  const div = document.createElement('div');
+  div.className = `bubble ${who}${loading ? ' loading' : ''}`;
+  div.textContent = text;
+  chatLog.appendChild(div);
+  chatLog.scrollTop = chatLog.scrollHeight;
+  return div;
+}
+
+async function ask(question){
+  if(!question.trim()) return;
+  addBubble(question, 'user');
+  qInput.value = '';
+  askBtn.disabled = true;
+  const loadingBubble = addBubble('Thinking…', 'agent', true);
+
+  try{
+    const res = await fetch(`${API}/api/ask`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ question })
+    });
+    const data = await res.json();
+    loadingBubble.classList.remove('loading');
+    loadingBubble.textContent = res.ok ? data.answer : `Error: ${data.detail || 'something went wrong.'}`;
+  }catch(err){
+    loadingBubble.classList.remove('loading');
+    loadingBubble.textContent = `Couldn't reach the backend: ${err.message}`;
+  }finally{
+    askBtn.disabled = false;
+  }
+}
+
+genBtn.addEventListener('click', runReconcile);
+askBtn.addEventListener('click', () => ask(qInput.value));
+qInput.addEventListener('keydown', e => { if(e.key === 'Enter') ask(qInput.value); });
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => ask(chip.textContent));
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,455 @@
+{
+  "summary": {
+    "total_transactions": 62,
+    "matched_count": 48,
+    "exception_count": 16,
+    "match_rate_pct": 77.42,
+    "reason_breakdown": {
+      "MISSING_SETTLEMENT": 4,
+      "AMOUNT_MISMATCH": 4,
+      "DELAYED_SETTLEMENT": 3,
+      "DUPLICATE_SETTLEMENT": 3,
+      "UNKNOWN_SETTLEMENT": 2
+    },
+    "total_amount_at_risk": 142175.88
+  },
+  "matched": [
+    {
+      "payment_id": "pay_100005",
+      "utr": "UTR900005",
+      "net_settled": 9811.73,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100006",
+      "utr": "UTR900006",
+      "net_settled": 30756.18,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100007",
+      "utr": "UTR900007",
+      "net_settled": 4627.99,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100008",
+      "utr": "UTR900008",
+      "net_settled": 35534.74,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100009",
+      "utr": "UTR900009",
+      "net_settled": 3601.59,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100010",
+      "utr": "UTR900010",
+      "net_settled": 25460.33,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100011",
+      "utr": "UTR900011",
+      "net_settled": 43343.15,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100012",
+      "utr": "UTR900012",
+      "net_settled": 12334.24,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100013",
+      "utr": "UTR900013",
+      "net_settled": 15723.29,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100014",
+      "utr": "UTR900014",
+      "net_settled": 23565.71,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100015",
+      "utr": "UTR900015",
+      "net_settled": 43531.76,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100016",
+      "utr": "UTR900016",
+      "net_settled": 37101.02,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100017",
+      "utr": "UTR900017",
+      "net_settled": 17628.46,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100018",
+      "utr": "UTR900018",
+      "net_settled": 9469.13,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100019",
+      "utr": "UTR900019",
+      "net_settled": 11760.17,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100020",
+      "utr": "UTR900020",
+      "net_settled": 32899.05,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100025",
+      "utr": "UTR900025",
+      "net_settled": 33845.43,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100026",
+      "utr": "UTR900026",
+      "net_settled": 20039.91,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100027",
+      "utr": "UTR900027",
+      "net_settled": 22270.44,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100028",
+      "utr": "UTR900028",
+      "net_settled": 6847.79,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100029",
+      "utr": "UTR900029",
+      "net_settled": 26407.04,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100030",
+      "utr": "UTR900030",
+      "net_settled": 10645.3,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100031",
+      "utr": "UTR900031",
+      "net_settled": 32236.73,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100032",
+      "utr": "UTR900032",
+      "net_settled": 5775.89,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100033",
+      "utr": "UTR900033",
+      "net_settled": 23282.21,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100034",
+      "utr": "UTR900034",
+      "net_settled": 31405.5,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100035",
+      "utr": "UTR900035",
+      "net_settled": 39589.73,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100036",
+      "utr": "UTR900036",
+      "net_settled": 14969.82,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100037",
+      "utr": "UTR900037",
+      "net_settled": 461.91,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100038",
+      "utr": "UTR900038",
+      "net_settled": 39844.3,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100039",
+      "utr": "UTR900039",
+      "net_settled": 12356.33,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100040",
+      "utr": "UTR900040",
+      "net_settled": 10800.72,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100045",
+      "utr": "UTR900045",
+      "net_settled": 12359.3,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100046",
+      "utr": "UTR900046",
+      "net_settled": 35573.94,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100047",
+      "utr": "UTR900047",
+      "net_settled": 42631.76,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100048",
+      "utr": "UTR900048",
+      "net_settled": 17965.64,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100049",
+      "utr": "UTR900049",
+      "net_settled": 7320.6,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100050",
+      "utr": "UTR900050",
+      "net_settled": 12653.23,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100051",
+      "utr": "UTR900051",
+      "net_settled": 6933.62,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100052",
+      "utr": "UTR900052",
+      "net_settled": 32742.41,
+      "settlement_date": "2026-09-02"
+    },
+    {
+      "payment_id": "pay_100053",
+      "utr": "UTR900053",
+      "net_settled": 2640.49,
+      "settlement_date": "2026-09-03"
+    },
+    {
+      "payment_id": "pay_100054",
+      "utr": "UTR900054",
+      "net_settled": 26235.63,
+      "settlement_date": "2026-09-03"
+    },
+    {
+      "payment_id": "pay_100055",
+      "utr": "UTR900055",
+      "net_settled": 41430.42,
+      "settlement_date": "2026-09-03"
+    },
+    {
+      "payment_id": "pay_100056",
+      "utr": "UTR900056",
+      "net_settled": 27303.08,
+      "settlement_date": "2026-09-03"
+    },
+    {
+      "payment_id": "pay_100057",
+      "utr": "UTR900057",
+      "net_settled": 41128.34,
+      "settlement_date": "2026-09-03"
+    },
+    {
+      "payment_id": "pay_100058",
+      "utr": "UTR900058",
+      "net_settled": 11721.19,
+      "settlement_date": "2026-09-03"
+    },
+    {
+      "payment_id": "pay_100059",
+      "utr": "UTR900059",
+      "net_settled": 14009.26,
+      "settlement_date": "2026-09-03"
+    },
+    {
+      "payment_id": "pay_100060",
+      "utr": "UTR900060",
+      "net_settled": 27381.03,
+      "settlement_date": "2026-09-03"
+    }
+  ],
+  "exceptions": [
+    {
+      "payment_id": "pay_100001",
+      "reason": "MISSING_SETTLEMENT",
+      "detail": "No bank settlement found for pay_100001, expected net 28011.87.",
+      "amount_delta": 28011.87,
+      "expected_net": 28011.87,
+      "settled_net": null,
+      "created_at": "2026-09-01 09:17:17"
+    },
+    {
+      "payment_id": "pay_100002",
+      "reason": "AMOUNT_MISMATCH",
+      "detail": "pay_100002 expected net 6226.8 but bank settled 6070.0 (delta -156.80).",
+      "amount_delta": -156.8,
+      "expected_net": 6226.8,
+      "settled_net": 6070.0,
+      "created_at": "2026-09-01 09:34:47"
+    },
+    {
+      "payment_id": "pay_100003",
+      "reason": "DELAYED_SETTLEMENT",
+      "detail": "pay_100003 settled 4 day(s) after capture (expected T+1).",
+      "amount_delta": 0.0,
+      "expected_net": 25879.32,
+      "settled_net": 25879.32,
+      "created_at": "2026-09-01 09:51:05",
+      "settlement_date": "2026-09-05"
+    },
+    {
+      "payment_id": "pay_100004",
+      "reason": "DUPLICATE_SETTLEMENT",
+      "detail": "pay_100004 was settled 2 times (UTRs: UTR900003, UTR900004).",
+      "amount_delta": 22169.06,
+      "expected_net": 22169.06,
+      "settled_net": 44338.12,
+      "created_at": "2026-09-01 10:08:12"
+    },
+    {
+      "payment_id": "pay_100021",
+      "reason": "MISSING_SETTLEMENT",
+      "detail": "No bank settlement found for pay_100021, expected net 9762.65.",
+      "amount_delta": 9762.65,
+      "expected_net": 9762.65,
+      "settled_net": null,
+      "created_at": "2026-09-01 14:57:32"
+    },
+    {
+      "payment_id": "pay_100022",
+      "reason": "AMOUNT_MISMATCH",
+      "detail": "pay_100022 expected net 33283.5 but bank settled 33036.56 (delta -246.94).",
+      "amount_delta": -246.94,
+      "expected_net": 33283.5,
+      "settled_net": 33036.56,
+      "created_at": "2026-09-01 15:14:09"
+    },
+    {
+      "payment_id": "pay_100023",
+      "reason": "DELAYED_SETTLEMENT",
+      "detail": "pay_100023 settled 4 day(s) after capture (expected T+1).",
+      "amount_delta": 0.0,
+      "expected_net": 26295.88,
+      "settled_net": 26295.88,
+      "created_at": "2026-09-01 15:31:38",
+      "settlement_date": "2026-09-05"
+    },
+    {
+      "payment_id": "pay_100024",
+      "reason": "DUPLICATE_SETTLEMENT",
+      "detail": "pay_100024 was settled 2 times (UTRs: UTR900023, UTR900024).",
+      "amount_delta": 42723.06,
+      "expected_net": 42723.06,
+      "settled_net": 85446.12,
+      "created_at": "2026-09-01 15:48:00"
+    },
+    {
+      "payment_id": "pay_100041",
+      "reason": "MISSING_SETTLEMENT",
+      "detail": "No bank settlement found for pay_100041, expected net 4396.52.",
+      "amount_delta": 4396.52,
+      "expected_net": 4396.52,
+      "settled_net": null,
+      "created_at": "2026-09-01 20:37:27"
+    },
+    {
+      "payment_id": "pay_100042",
+      "reason": "AMOUNT_MISMATCH",
+      "detail": "pay_100042 expected net 37791.63 but bank settled 37624.68 (delta -166.95).",
+      "amount_delta": -166.95,
+      "expected_net": 37791.63,
+      "settled_net": 37624.68,
+      "created_at": "2026-09-01 20:54:41"
+    },
+    {
+      "payment_id": "pay_100043",
+      "reason": "DELAYED_SETTLEMENT",
+      "detail": "pay_100043 settled 4 day(s) after capture (expected T+1).",
+      "amount_delta": 0.0,
+      "expected_net": 17799.35,
+      "settled_net": 17799.35,
+      "created_at": "2026-09-01 21:11:55",
+      "settlement_date": "2026-09-05"
+    },
+    {
+      "payment_id": "pay_100044",
+      "reason": "DUPLICATE_SETTLEMENT",
+      "detail": "pay_100044 was settled 2 times (UTRs: UTR900043, UTR900044).",
+      "amount_delta": 8546.8,
+      "expected_net": 8546.8,
+      "settled_net": 17093.6,
+      "created_at": "2026-09-01 21:28:08"
+    },
+    {
+      "payment_id": "pay_100061",
+      "reason": "MISSING_SETTLEMENT",
+      "detail": "No bank settlement found for pay_100061, expected net 22192.14.",
+      "amount_delta": 22192.14,
+      "expected_net": 22192.14,
+      "settled_net": null,
+      "created_at": "2026-09-02 02:17:22"
+    },
+    {
+      "payment_id": "pay_100062",
+      "reason": "AMOUNT_MISMATCH",
+      "detail": "pay_100062 expected net 16348.36 but bank settled 16336.48 (delta -11.88).",
+      "amount_delta": -11.88,
+      "expected_net": 16348.36,
+      "settled_net": 16336.48,
+      "created_at": "2026-09-02 02:34:53"
+    },
+    {
+      "payment_id": "pay_999000",
+      "reason": "UNKNOWN_SETTLEMENT",
+      "detail": "Bank settled UTR900062 for pay_999000, which has no matching transaction record.",
+      "amount_delta": 2542.76,
+      "expected_net": null,
+      "settled_net": 2542.76,
+      "created_at": null
+    },
+    {
+      "payment_id": "pay_999001",
+      "reason": "UNKNOWN_SETTLEMENT",
+      "detail": "Bank settled UTR900063 for pay_999001, which has no matching transaction record.",
+      "amount_delta": 1248.45,
+      "expected_net": null,
+      "settled_net": 1248.45,
+      "created_at": null
+    }
+  ]
+}
